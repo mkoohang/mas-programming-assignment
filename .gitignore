@@ -1,3 +1,5 @@
-.idea
-/venv
-
+# Flask app files to ignore.
+/flask/.idea
+/flask/venv
+/flask/__pycache__
+/flask/*.pyc
