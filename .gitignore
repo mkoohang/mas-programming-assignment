@@ -1,5 +1,6 @@
 # Flask app files to ignore.
-/flask/.idea
-/flask/venv
-/flask/__pycache__
-/flask/*.pyc
+.idea
+/venv
+/__pycache__
+*.pyc
+.DS_store
