@@ -6,8 +6,7 @@ import bcrypt
 import datetime
 
 app = Flask(__name__)
-app.config.from_object("config.DevConfig")
-print(app.config)
+app.config.from_pyfile("config.py")
 mongo = PyMongo(app)
 
 
@@ -72,6 +71,17 @@ def register():
         return jsonify({"message": "User '" + data["username"] + "' already exists!"}), 401
     else:
         return jsonify({"message": "Username or password missing!"}), 401
+
+
+@app.route('/rest/allparks')
+@token_required
+def allparks():
+    parks = mongo.db.parks.find()
+    result = []
+    for park in parks:
+        park['_id'] = str(park['_id'])
+        result.append(park)
+    return jsonify(result)
 
 
 if __name__ == '__main__':
