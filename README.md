@@ -1,20 +1,20 @@
-# National Parks API
+# National Parks API 🌲
 This is a backend API for accessing and favoriting national parks from the National Park Services API.
 
-## Features
+## Features ⭐️
 - User Authentication
 - JWT Token Authentication
 - Favoriting parks
 
-## Tech Stack
+## Tech Stack 🐍
 - Flask (Python)
 - MongoDB
 
-## Endpoints
+## Endpoints ⚡️
 
 base_url = https://powerful-wildwood-07865.herokuapp.com
 
-### Registration
+### Registration 📝
 **POST** `{base_url}/rest/register`
 - This is where you can register users with the service.
 - Body
@@ -32,7 +32,7 @@ base_url = https://powerful-wildwood-07865.herokuapp.com
 }
 ```
 
-### Login
+### Login ⌨️
 **POST** `{base_url}/rest/login`
 - This is where you can log in to the service.
 - Body
@@ -51,7 +51,7 @@ base_url = https://powerful-wildwood-07865.herokuapp.com
 }
 ```
 
-### All Parks
+### All Parks 🏞
 **GET** `{base_url}/rest/allparks`
 - This is where you can view all parks.
 - Headers
@@ -89,7 +89,7 @@ Authorization: eyJ0eXAiOiJKV1Qi2CJhbGciOi9IUzI1NiJ9.eyJ0c2VyIjoibWljaGFl1CIsImV4
 }
 ```
 
-### Add Park
+### Add Park ➕🏞
 **POST** `{base_url}/rest/favorite`
 - This is where you can favorite a park.
 - Body
@@ -131,7 +131,7 @@ Authorization: eyJ0eXAiOiJKV1Qi2CJhbGciOi9IUzI1NiJ9.eyJ0c2VyIjoibWljaGFl1CIsImV4
 }
 ```
 
-### Remove Park
+### Remove Park ➖🏞
 **POST** `{base_url}/rest/unfavorite`
 - This is where you can unfavorite a park.
 - Body
@@ -162,7 +162,7 @@ Authorization: eyJ0eXAiOiJKV1Qi2CJhbGciOi9IUzI1NiJ9.eyJ0c2VyIjoibWljaGFl1CIsImV4
 }
 ```
 
-### User
+### User 👨🏼‍💻
 **GET** `{base_url}/rest/user`
  - This is where you can view user info, including wishlists.
 - Headers
