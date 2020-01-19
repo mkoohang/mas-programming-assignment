@@ -12,7 +12,7 @@ This is a backend API for accessing and favoriting national parks from the Natio
 
 ## Endpoints
 
-base_url = https://powerful-wildwood-07865.herokuapp.com/
+base_url = https://powerful-wildwood-07865.herokuapp.com
 
 ### Registration
 `POST {base_url}/rest/register`
