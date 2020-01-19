@@ -89,7 +89,7 @@ Authorization: eyJ0eXAiOiJKV1Qi2CJhbGciOi9IUzI1NiJ9.eyJ0c2VyIjoibWljaGFl1CIsImV4
 }
 ```
 
-### Add Park ➕🏞
+### Favorite Park ➕🏞
 **POST** `{base_url}/rest/favorite`
 - This is where you can favorite a park.
 - Body
@@ -131,7 +131,7 @@ Authorization: eyJ0eXAiOiJKV1Qi2CJhbGciOi9IUzI1NiJ9.eyJ0c2VyIjoibWljaGFl1CIsImV4
 }
 ```
 
-### Remove Park ➖🏞
+### Unfavorite Park ➖🏞
 **POST** `{base_url}/rest/unfavorite`
 - This is where you can unfavorite a park.
 - Body
