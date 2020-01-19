@@ -1,4 +1,4 @@
-from flask import Flask, jsonify, request
+from flask import Flask, jsonify, request, render_template
 from flask_pymongo import PyMongo
 from functools import wraps
 import jwt
@@ -29,9 +29,9 @@ def token_required(f):
     return decorated
 
 
-@app.route('/', methods=['POST'])
+@app.route('/', methods=['GET'])
 def root():
-    return "root"
+    return render_template('index.html')
 
 
 @app.route('/rest/login', methods=['POST'])
