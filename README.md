@@ -1,8 +1,13 @@
 # National Parks API
 This is a backend API for accessing and favoriting national parks from the National Park Services API.
 
+# Features
+- User Authentication
+- JWT Token Authentication
+- Favoriting parks
+
 ## Tech Stack
-- Python
+- Flask (Python)
 - MongoDB
 
 ## Endpoints
@@ -49,14 +54,6 @@ base_url = https://powerful-wildwood-07865.herokuapp.com/
 ### All Parks
 `GET {base_url}/rest/allparks`
 - This is where you can view all parks.
-- Body
-```
-{
-    "username": <username>,
-    "password": <password>
-}
-```
-
  - Headers
 ```
 Authorization: <api_token>
@@ -64,67 +61,20 @@ Authorization: <api_token>
  - Return
 ```
 {
-    "parks": [<list_of_all_parks>]
+    "parks": [
+        <list_of_all_parks>
+    ]
 }
 ```
 
-### Add Park
+### Add Park (Pending)
 `POST {base_url}/rest/addpark`
-- Body
-```
-{
-    "username": <username>,
-    "password": <password>
-}
-```
- - Headers
-```
-Authorization: <api_token>
-```
- - Return
-```
-{
-    "park": {
-        <details_of_park_added>
-    },
-    "wishlist": [<list_of_parks>]
-}
-```
+- In progress
 
-### Remove Park
+### Remove Park (Pending)
 `POST {base_url}/rest/removepark`
-- Body
-```
-{
-    "~~username~~": <username>,
-    "password": <password>
-}
-```
- - Headers
-```
-Authorization: <api_token>
-```
- - Return
-```
-{
-    "park": {
-        <details_of_park_removed>
-    },
-    "wishlist": [<list_of_parks>]
-}
-```
+- In progress
 
-### User
+### User (Pending)
 `GET {base_url}/rest/user`
- - Headers
-```
-Authorization: <api_token>
-```
- - Return
-```
-{
-    "username": <username>,
-    "id": <id>,
-    "wishlist": [<list_of_parks>]
-}
-```
+ - In progress
