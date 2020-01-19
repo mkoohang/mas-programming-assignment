@@ -11,7 +11,7 @@ app.config['DEBUG'] = os.environ.get('DEBUG')
 app.config['TESTING'] = os.environ.get('TESTING')
 app.config['FLASK_ENV'] = os.environ.get('FLASK_ENV')
 app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY')
-app.config['MONGO_URI'] = os.environ.get('MONGO_URI')
+app.config['MONGO_URI'] = os.environ.get('MONGODB_URI')
 app.config['NPS_API_KEY'] = os.environ.get('NPS_API_KEY')
 mongo = PyMongo(app)
 
