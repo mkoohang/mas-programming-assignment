@@ -1,0 +1,65 @@
+
+body, html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: #f2f2f2;
+    fonto;
+    font-family: Titillium Web, sans-erif;
+    background-image: url("/static/img/topography.png");
+}
+
+#container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+#card {
+    background-color: #282C34;
+    height: 375px;
+    width: 400px;
+    text-align: center;
+    border-radius: 10px;
+    animation-name: pulse;
+    animation-duration: 2.5s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes pulse {
+    0% {transform: scaleX(1.0) scaleY(1.0)}
+    50% {transform: scaleX(1.05) scaleY(1.05)}
+    100% {transform: scaleX(1.0) scaleY(1.0)}
+}
+
+h1 {
+    color: #ffffff;
+}
+
+#emoji {
+    font-size: 96px;
+    margin: 0;
+}
+
+hr {
+    border: 3px solid #f2f2f2;
+}
+
+p {
+    margin-top: 0;
+    margin-bottom: 32px;
+    color: #ffffff;
+}
+
+a {
+    background-color: #6ED791;
+    padding: 12px 16px;
+    border-radius: 10px;
+    text-decoration: none;
+    color: #ffffff;
+}
+
+a:hover {
+    background-color: #E7576C;
+}
