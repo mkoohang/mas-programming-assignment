@@ -87,7 +87,7 @@ def allparks():
     for park in parks:
         park['_id'] = str(park['_id'])
         result.append(park)
-    return jsonify(result)
+    return jsonify({"parks": result})
 
 
 if __name__ == '__main__':
