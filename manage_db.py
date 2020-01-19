@@ -1,11 +1,11 @@
 
-import config
+import os
 import requests
 from app import mongo
 
 
 def reset_park_collection():
-    key = config.NPS_API_KEY
+    key = os.environ.get('NPS_API_KEY')
     url = "https://developer.nps.gov/api/v1/parks"
     result = requests.get(url, params={"limit": 100, "fields": "images", "api_key": key})
     data = result.json()['data']
@@ -36,4 +36,5 @@ def split_lat_long(latlong: str) -> tuple:
     return float(data[0]), float(data[1])
 
 
-reset_park_collection()
+if __name__ == '__main__':
+    reset_park_collection()
