@@ -4,11 +4,14 @@ import requests
 from app import mongo
 
 
-# Resets parks data in database.
 def reset_park_collection():
+    '''
+    Resets park data in the Mongo database.
+    :return:
+    '''
     key = os.environ.get('NPS_API_KEY')
     url = "https://developer.nps.gov/api/v1/parks"
-    result = requests.get(url, params={"limit": 120, "fields": "images", "api_key": key})
+    result = requests.get(url, params={"limit": 150, "fields": "images", "api_key": key})
     data = result.json()['data']
     new_park_list = []
     for park in data:
@@ -33,14 +36,21 @@ def reset_park_collection():
     parks.insert_many(new_park_list)
 
 
-# Resets user accounts in database.
 def reset_user_collection():
+    '''
+    # Resets user accounts in the Mongo database.
+    :return:
+    '''
     users = mongo.db.users
     users.delete_many({})
 
 
-# Parses the latitude and longitude from the National Park Service API.
 def split_lat_long(latlong: str) -> tuple:
+    '''
+    # Parses the latitude and longitude from the National Park Service API.
+    :param latlong:
+    :return:
+    '''
     data = latlong.split(',')
     data[0] = data[0][4:]
     data[1] = data[1][6:]
