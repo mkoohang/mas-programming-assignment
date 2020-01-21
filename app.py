@@ -89,7 +89,7 @@ def login():
 def register():
     data = request.get_json()
     # Check if the username and password are in the data.
-    if 'username' in data and 'password' in data:
+    if data['username'] and 'username' in data and data['password'] and 'password' in data:
         # Grab the users collection from the Mongo database.
         users = mongo.db.users
         # Query the user with the username provided in the data.
