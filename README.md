@@ -10,6 +10,11 @@ This is a backend API for accessing and favoriting national parks from the Natio
 - Flask (Python)
 - MongoDB
 
+## Instructions
+1. Register with the API through the `rest/register` endpoint
+2. Login to the API through the `rest/login` endpoint
+3. Use the API token returned to you from the login endpoint to access all other endpoints
+
 ## Endpoints ⚡️
 
 base_url = https://powerful-wildwood-07865.herokuapp.com
@@ -137,7 +142,7 @@ Authorization: eyJ0eXAiOiJKV1Qi2CJhbGciOi9IUzI1NiJ9.eyJ0c2VyIjoibWljaGFl1CIsImV4
 - Body
 ```
 {
-    "park_id": <park_id>
+    "park_id": "5e23f4e7318123e9fe6712a0"
 }
 ```
 - Headers
