@@ -63,25 +63,30 @@ def login():
     data = request.get_json()
     # Check if the username and password are in the data.
     if 'username' in data and 'password' in data:
-        # Grab the users collection from the Mongo database.
-        users = mongo.db.users
-        # Query the user with the username provided in the data.
-        login_user = users.find_one({'username': data['username']})
+        # Check if the username and password are not blank.
+        if data['username'] and data['password']:
+            # Grab the users collection from the Mongo database.
+            users = mongo.db.users
+            # Query the user with the username provided in the data.
+            login_user = users.find_one({'username': data['username']})
 
-        # If the user exists.
-        if login_user:
-            # Check the password provided with the hashed password in the database.
-            if bcrypt.checkpw(data['password'].encode('utf-8'), login_user['password']):
-                # Generate a new JWT token that lasts for 24 hours.
-                token = jwt.encode({"user": data["username"], "exp": datetime.datetime.utcnow() +
-                                        datetime.timedelta(hours=24)}, app.config["SECRET_KEY"])
-                return jsonify({"message": "Login succesful!", "token": token.decode('utf-8')})
-            else:
-                return jsonify({"message": "Incorrect password! Please try again."}), 401
+            # If the user exists.
+            if login_user:
+                # Check the password provided with the hashed password in the database.
+                if bcrypt.checkpw(data['password'].encode('utf-8'), login_user['password']):
+                    # Generate a new JWT token that lasts for 24 hours.
+                    token = jwt.encode({"user": data["username"], "exp": datetime.datetime.utcnow() +
+                                                                         datetime.timedelta(hours=24)},
+                                       app.config["SECRET_KEY"])
+                    return jsonify({"message": "Login succesful!", "token": token.decode('utf-8')})
+                else:
+                    return jsonify({"message": "Incorrect password! Please try again."}), 401
+            return jsonify({"message": "User '" + data["username"] + "' does not exist!"}), 401
 
-        return jsonify({"message": "User '" + data["username"] + "' does not exist!"}), 401
+        else:
+            return jsonify({"message": "Username or password is blank!"}), 401
     else:
-        return jsonify({"message": "Username or password missing!"}), 401
+        return jsonify({"message": "Username or password field is missing from request!"}), 401
 
 
 # Endpoint for registering with the API.
@@ -89,26 +94,30 @@ def login():
 def register():
     data = request.get_json()
     # Check if the username and password are in the data.
-    if data['username'] and 'username' in data and data['password'] and 'password' in data:
-        # Grab the users collection from the Mongo database.
-        users = mongo.db.users
-        # Query the user with the username provided in the data.
-        existing_user = users.find_one({'username': data['username']})
+    if 'username' in data and 'password' in data:
+        # Check if the username and password are not blank.
+        if data['username'] and data['password']:
+            # Grab the users collection from the Mongo database.
+            users = mongo.db.users
+            # Query the user with the username provided in the data.
+            existing_user = users.find_one({'username': data['username']})
 
-        # Check if the user with the username provided does not exist in the database.
-        if existing_user is None:
-            # Create a new hashed password.
-            hashpass = bcrypt.hashpw(data['password'].encode('utf-8'), bcrypt.gensalt())
-            # Insert the new user into the database.
-            users.insert({'username': data['username'], 'password': hashpass, 'wishlist': []})
-            # Generate a JWT token to return to the user.
-            token = jwt.encode({"user": data["username"], "exp": datetime.datetime.utcnow() +
-                                        datetime.timedelta(hours=24)}, app.config["SECRET_KEY"])
-            return jsonify({"message": "New user '" + data["username"] + "' created!", "token": token.decode('utf-8')})
+            # Check if the user with the username provided does not exist in the database.
+            if existing_user is None:
+                # Create a new hashed password.
+                hashpass = bcrypt.hashpw(data['password'].encode('utf-8'), bcrypt.gensalt())
+                # Insert the new user into the database.
+                users.insert({'username': data['username'], 'password': hashpass, 'wishlist': []})
+                # Generate a JWT token to return to the user.
+                token = jwt.encode({"user": data["username"], "exp": datetime.datetime.utcnow() +
+                                            datetime.timedelta(hours=24)}, app.config["SECRET_KEY"])
+                return jsonify({"message": "New user '" + data["username"] + "' created!", "token": token.decode('utf-8')})
 
-        return jsonify({"message": "User '" + data["username"] + "' already exists!"}), 401
+            return jsonify({"message": "User '" + data["username"] + "' already exists!"}), 401
+        else:
+            return jsonify({"message": "Username or password is blank!"}), 401
     else:
-        return jsonify({"message": "Username or password missing!"}), 401
+        return jsonify({"message": "Username or password field is missing from request!"}), 401
 
 
 # Endpoint for accessing all parks in the database.
