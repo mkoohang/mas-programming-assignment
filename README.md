@@ -2,22 +2,58 @@
 This is a backend API for accessing and favoriting national parks from the National Park Services API.
 
 ## Features ⭐️
-- User Authentication
+- User accounts
 - JWT Token Authentication
-- Favoriting parks
+- National Park Service API Integration
+- Favoriting and unfavoriting parks
+- Wish lists for keeping track of favorite parks
 
 ## Tech Stack 🐍
 - Flask (Python)
 - MongoDB
 
-## Instructions
+## Run ⬆️
+
+### Live
+The app is currently running live at https://powerful-wildwood-07865.herokuapp.com. You can use a REST client such as [Postman](https://www.getpostman.com/)
+to make HTTP requests or write scripts in your language of choice. Instructions for access are listed under 'Instructions'.
+
+### Local
+Running this app with a local MongoDB database is quite difficult, so all you'll have to do 
+is connect to the live database we are running rather than create your own. We provide the URI
+to it in an environment variable below.
+
+To run this app locally, you need to follow these steps:
+1. Make sure you have [Python 3](https://www.python.org/downloads/) installed
+2. Download or clone the repository
+3. `cd` in to the repository and create a virtual environment `python3 -m venv ./venv`
+4. Activate the virtual environment `source ./venv/bin/activate`
+5. Install the required packages `pip install -r requirements.txt`
+6. Export the following environment variables in your terminal or change the values in the `create_app()` function 
+in the app.py file from `os.environ.get()` to the values listed here. These values are 
+included in the write up for the assignment rather than this README for security purposes. 
+Please refer to my written submission for the values of these environment variables.
+    1. MONGODB_URI=?
+    2. FLASK_ENV=?
+    3. DEBUG=?
+    4. TESTING=?
+    5. SECRET_KEY=?
+    6. NPS_API_KEY=?
+7. Run the app in the terminal `python app.py`
+
+The app should now be running. Follow the rest of the instructions to interact with it.
+
+## Instructions 📜
 1. Register with the API through the `rest/register` endpoint
 2. Login to the API through the `rest/login` endpoint
-3. Use the API token returned to you from the login endpoint to access all other endpoints
+3. Use the API token returned to you from the login or registration endpoint to access 
+all other endpoints
 
 ## Endpoints ⚡️
 
-base_url = https://powerful-wildwood-07865.herokuapp.com
+- LIVE base_url = https://powerful-wildwood-07865.herokuapp.com
+- LOCAL base_url = (check your terminal when you do step #7 in the 'Run' section to see what
+address the app is running on; it's most likely 127.0.0.1:5000)
 
 ### Registration 📝
 **POST** `{base_url}/rest/register`
@@ -169,7 +205,7 @@ Authorization: eyJ0eXAiOiJKV1Qi2CJhbGciOi9IUzI1NiJ9.eyJ0c2VyIjoibWljaGFl1CIsImV4
 
 ### User 👨🏼‍💻
 **GET** `{base_url}/rest/user`
- - This is where you can view user info, including wishlists.
+ - This is where you can view user info, including wish lists.
 - Headers
 ```
 Authorization: eyJ0eXAiOiJKV1Qi2CJhbGciOi9IUzI1NiJ9.eyJ0c2VyIjoibWljaGFl1CIsImV4c2I6MTU3OTKwMPUxOX0.cXy8y9qXtQ48j88oTLJ-dr5LAcA-vwwpATb5mcdw-DY
