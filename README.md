@@ -29,10 +29,15 @@ To run this app locally, you need to follow these steps:
 3. `cd` in to the repository and create a virtual environment `python3 -m venv ./venv`
 4. Activate the virtual environment `source ./venv/bin/activate`
 5. Install the required packages `pip install -r requirements.txt`
-6. Export the following environment variables in your terminal or change the values in the `create_app()` function 
-in the app.py file from `os.environ.get()` to the values listed here. These values are 
+6. Export the following environment variables in your terminal or change the values in the `create_app()` function in the app.py file from `os.environ.get()` to the values listed here. These values are 
 included in the write up for the assignment rather than this README for security purposes. 
-Please refer to my written submission for the values of these environment variables.
+Please refer to my written submission for the values of these environment variables. 
+
+Example for how to export: type `export MONGODB_URI=valueinwriteup`. Repeat this process for all 6 variables shown below and replace 'somevalue' with the value given in the write up submission. DO NOT put quotes around the value.
+
+Example for replacing values in 'app.py': Change `application.config['MONGO_URI'] = os.environ.get('MONGODB_URI')` to `application.config['MONGO_URI'] = "valueinwriteup"`. MAKE SURE to include the quotes around the value so that it's a string.
+
+Repeat either of these processes for each of the variables below.
     1. MONGODB_URI=?
     2. FLASK_ENV=?
     3. DEBUG=?
