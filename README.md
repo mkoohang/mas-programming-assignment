@@ -1,5 +1,5 @@
 # National Parks API 🌲
-This is a backend API for accessing and favoriting national parks from the National Park Services API.
+This is a backend API for accessing and favoriting national parks from the National Park Services API. It was created to support the [My Parks](https://github.com/willsaid/National-Parks) iOS app for the pair programming assignment in CS 8803 - Mobile Apps and Services.
 
 ## Features ⭐️
 - User accounts
