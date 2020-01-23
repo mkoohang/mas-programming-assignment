@@ -33,7 +33,7 @@ To run this app locally, you need to follow these steps:
 included in the write up for the assignment rather than this README for security purposes. 
 Please refer to my written submission for the values of these environment variables. 
 	1. Example for how to export: type `export MONGODB_URI=valueinwriteup`. Repeat this process for all 6 variables shown below and replace 'somevalue' with the value given in the write up submission. DO NOT put quotes around the value.
-	2. Example for replacing values in 'app.py': Change `application.config['MONGO_URI'] = os.environ.get('MONGODB_URI')` to `application.config['MONGO_URI'] = "valueinwriteup"`. MAKE SURE to include the quotes around the value so that it's a string.
+	2. Example for replacing values in 'app.py': Change `application.config['MONGO_URI'] = os.environ.get('MONGODB_URI')` to `application.config['MONGO_URI'] = "valueinwriteup"`. MAKE SURE to include the quotes around the value so that it's a string (Except for DEBUG and TESTING which are boolean values).
 	3. Repeat either of these processes for each of the variables below.
 		1. MONGODB_URI=?
 		2. FLASK_ENV=?
